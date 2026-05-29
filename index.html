@@ -56,5 +56,28 @@
     <footer>
         <p>&copy; 2026 비영리 내돈 내산 운영.</p>
     </footer>
+
+<script>
+  // content.txt 파일을 불러와 content-area div에 넣는 함수
+  fetch('content.txt')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('파일을 불러올 수 없습니다.');
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById('content-area').innerText = data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      document.getElementById('content-area').innerText = '내용을 불러오는데 실패했습니다.';
+    });
+</script>
+
+
+
+
+    
 </body>
 </html>
